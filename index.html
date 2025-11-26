@@ -6,17 +6,14 @@
     <meta name="description" content="Instituto Celer - Quiropraxia e Fisioterapia Especializada em SP. Tratamento de dor na coluna, fisioterapia esportiva e recuperação acelerada.">
     <title>Instituto Celer | Quiropraxia e Fisioterapia em SP</title>
     
-    <!-- Google Fonts: Oswald (Logo/Títulos) e Roboto (Texto) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 
-    <!-- CSS Frameworks via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <!-- AOS Animation CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -151,11 +148,11 @@
         /* --- HERO SECTION --- */
         .hero-section {
             background: linear-gradient(135deg, var(--celer-navy) 0%, #002855 50%, var(--celer-blue) 100%);
-            padding: 80px 0; /* Ajustado padding para equilibrar melhor com a imagem sem borda */
+            padding: 80px 0;
             position: relative;
             overflow: hidden;
             color: white;
-            min-height: 85vh; /* Garante que o hero ocupe boa parte da tela */
+            min-height: 85vh;
             display: flex;
             align-items: center;
         }
@@ -328,6 +325,20 @@
         .stars { color: #f4c150; margin-bottom: 15px; }
         .google-icon { width: 24px; margin-right: 10px; }
 
+        /* --- SWIPER ARROWS CUSTOM --- */
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--celer-blue) !important;
+            background: rgba(255,255,255,0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px !important;
+            font-weight: bold;
+        }
+
         /* --- FAQ SECTION --- */
         .accordion-item {
             border: none;
@@ -427,11 +438,9 @@
 </head>
 <body id="top">
 
-    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <!-- LOGO -->
                 <a href="#top" class="brand-logo">
                     <img src="Logo celer_img_page-0001.JPG" alt="Logo Instituto Celer" class="logo-img">
                     <div class="logo-text-group">
@@ -440,7 +449,6 @@
                     </div>
                 </a>
 
-                <!-- Menu Desktop -->
                 <nav class="d-none d-lg-block">
                     <ul class="nav">
                         <li class="nav-item"><a href="#inicio" class="nav-link">Home</a></li>
@@ -455,7 +463,6 @@
                     <a href="https://wa.me/5511919914927" target="_blank" class="btn-celer d-none d-md-block">
                         <i class="fab fa-whatsapp me-2"></i> Agendar
                     </a>
-                    <!-- Menu Mobile Button -->
                     <button class="btn btn-link d-lg-none text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Abrir Menu">
                         <i class="fas fa-bars fa-2x"></i>
                     </button>
@@ -464,7 +471,6 @@
         </div>
     </header>
 
-    <!-- MENU MOBILE OFFCANVAS -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title text-uppercase fw-bold text-primary">Menu</h5>
@@ -484,7 +490,6 @@
         </div>
     </div>
 
-    <!-- HERO SECTION -->
     <section id="inicio" class="hero-section d-flex align-items-center">
         <div class="container">
             <div class="row align-items-center">
@@ -511,13 +516,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Imagem Ilustrativa (SEM MOLDURA) -->
                 <div class="col-lg-5 d-none d-lg-block text-center position-relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                    <!-- 
-                         1. Imagem alterada para sugerir "Atendimento" (Médico/Fisio em pé ou interagindo).
-                         2. Removido 'shadow-lg' e 'border' estilo inline.
-                         3. Mantido 'img-fluid' para responsividade.
-                    -->
                     <img src="atendimentoLucas.jpg" 
                          width="500" height="600" 
                          alt="Dr. em Atendimento Instituto Celer" 
@@ -528,13 +527,11 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section class="about-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <div class="position-relative">
-                        <!-- Imagem Dr Lucas (Placeholder) -->
                         <img src="DRLUCAS.png" loading="lazy" alt="Dr Lucas Ghiraldi" class="img-fluid rounded-3 shadow">
                         <div class="bg-primary text-white p-4 rounded-3 position-absolute bottom-0 start-0 m-4 shadow-lg" style="max-width: 250px; background-color: var(--celer-blue) !important;" data-aos="zoom-in" data-aos-delay="300">
                             <h3 class="h5 text-white mb-0">Gestão & Cuidado</h3>
@@ -554,7 +551,6 @@
                         <li><i class="fas fa-check-circle"></i> Previsibilidade de Resultados</li>
                     </ul>
 
-                    <!-- Botão Agende Agora Centralizado na Div -->
                     <div class="text-center">
                         <a href="#unidades" class="btn-celer mt-4 d-inline-block">Agende Agora</a>
                     </div>
@@ -563,7 +559,6 @@
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
     <section id="especialidades" class="services-section">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -571,7 +566,6 @@
                 <h2 class="section-title">Nossas Especialidades</h2>
             </div>
 
-            <!-- Swiper -->
             <div class="swiper mySwiper pb-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -581,7 +575,6 @@
                             <p class="text-muted">Realinhamento articular com foco na coluna vertebral. Alívio de dores, melhora da mobilidade e bem-estar geral.</p>
                         </div>
                     </div>
-                    <!-- Nova Especialidade: Fisioterapia Especializada -->
                     <div class="swiper-slide">
                         <div class="service-card text-center">
                             <div class="service-icon mx-auto"><i class="fas fa-user-md"></i></div>
@@ -596,7 +589,6 @@
                             <p class="text-muted">Prevenção, tratamento e reabilitação de lesões. Otimização do desempenho para o retorno seguro ao esporte.</p>
                         </div>
                     </div>
-                    <!-- Nova Especialidade: Fisioterapia Pós-Cirúrgica -->
                     <div class="swiper-slide">
                         <div class="service-card text-center">
                             <div class="service-icon mx-auto"><i class="fas fa-crutch"></i></div>
@@ -604,7 +596,6 @@
                             <p class="text-muted">Protocolos específicos para acelerar sua recuperação e retorno às atividades após cirurgias.</p>
                         </div>
                     </div>
-                    <!-- Nova Especialidade: Tratamento para Hérnia de Disco -->
                     <div class="swiper-slide">
                         <div class="service-card text-center">
                             <div class="service-icon mx-auto"><i class="fas fa-bone"></i></div>
@@ -612,7 +603,6 @@
                             <p class="text-muted">Abordagem não cirúrgica eficaz para alívio da dor e descompressão da coluna.</p>
                         </div>
                     </div>
-                    <!-- Nova Especialidade: Eletroestimulação -->
                     <div class="swiper-slide">
                         <div class="service-card text-center">
                             <div class="service-icon mx-auto"><i class="fas fa-bolt"></i></div>
@@ -620,7 +610,6 @@
                             <p class="text-muted">Tecnologia avançada para ativação muscular profunda e reabilitação acelerada.</p>
                         </div>
                     </div>
-                    <!-- Nova Especialidade: Neuromodulação -->
                     <div class="swiper-slide">
                         <div class="service-card text-center">
                             <div class="service-icon mx-auto"><i class="fas fa-brain"></i></div>
@@ -648,7 +637,6 @@
         </div>
     </section>
 
-    <!-- DIFERENCIAIS (Tabs) -->
     <section id="diferenciais" class="py-5 bg-white">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -674,7 +662,6 @@
                             <p>Oferecemos sessões individuais de 50 minutos com foco total no paciente. Sem atendimentos simultâneos, garantindo atenção exclusiva.</p>
                         </div>
                         <div class="col-lg-4 text-center">
-                            <!-- Ícone Atualizado: Azul Escuro (var(--celer-navy)) -->
                             <i class="fas fa-user-check fa-5x" style="color: var(--celer-navy);"></i>
                         </div>
                     </div>
@@ -686,7 +673,6 @@
                             <p>Realizamos testes clínicos, físicos e funcionais detalhados para identificar a verdadeira raiz da dor, e não apenas tratar sintomas superficiais.</p>
                         </div>
                         <div class="col-lg-4 text-center">
-                            <!-- Ícone Atualizado: Azul Escuro -->
                             <i class="fas fa-search-plus fa-5x" style="color: var(--celer-navy);"></i>
                         </div>
                     </div>
@@ -698,7 +684,6 @@
                             <p>Utilizamos Laserterapia, Dry Needling, TENS e outras tecnologias avançadas para acelerar sua recuperação com conforto e segurança.</p>
                         </div>
                         <div class="col-lg-4 text-center">
-                            <!-- Ícone Atualizado: Azul Escuro -->
                             <i class="fas fa-microchip fa-5x" style="color: var(--celer-navy);"></i>
                         </div>
                     </div>
@@ -707,7 +692,6 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: DEPOIMENTOS (Testimonials) -->
     <section id="depoimentos" class="py-5" style="background-color: var(--celer-light);">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -718,14 +702,12 @@
                     <div class="text-warning">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <!-- Link para avaliações reais -->
                     <a href="https://share.google/sE10m5hZ6icdaLtC8" target="_blank" class="text-muted text-decoration-underline">(Baseado em avaliações do Google)</a>
                 </div>
             </div>
 
             <div class="swiper testimonialsSwiper pb-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
-                    <!-- Card 1 -->
                     <div class="swiper-slide">
                         <div class="testimonial-card">
                             <div class="d-flex justify-content-between mb-3">
@@ -744,7 +726,6 @@
                             <p class="text-muted fst-italic">"Fiz algumas sessões de Quiro e as minhas costas ficaram 100%! Profissionais muito atenciosos e ambiente excelente."</p>
                         </div>
                     </div>
-                    <!-- Card 2 -->
                     <div class="swiper-slide">
                         <div class="testimonial-card">
                             <div class="d-flex justify-content-between mb-3">
@@ -763,7 +744,6 @@
                             <p class="text-muted fst-italic">"Cheguei com dor no joelho que me impedia de correr. Após o tratamento e fortalecimento, voltei aos treinos sem dor."</p>
                         </div>
                     </div>
-                    <!-- Card 3 -->
                     <div class="swiper-slide">
                         <div class="testimonial-card">
                             <div class="d-flex justify-content-between mb-3">
@@ -786,15 +766,51 @@
                 <div class="swiper-pagination"></div>
             </div>
             
-            <div class="text-center mt-3">
+            <div class="text-center mt-3 mb-5">
                  <a href="https://share.google/sE10m5hZ6icdaLtC8" target="_blank" class="btn btn-outline-primary rounded-pill">
                     <i class="fab fa-google me-2"></i> Ver todas as avaliações
                  </a>
             </div>
+
+            <div class="row mt-5" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-12 text-center mb-4">
+                    <h4 class="text-uppercase" style="color: var(--celer-navy);">Depoimentos em Vídeo</h4>
+                </div>
+                
+                <div class="col-12">
+                    <div class="swiper videoSwiper px-4">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="ratio ratio-16x9 rounded-3 shadow-sm overflow-hidden border border-light">
+                                    <iframe src="https://www.youtube.com/embed/OkKDeFARabQ" title="Depoimento 1" allowfullscreen loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="ratio ratio-16x9 rounded-3 shadow-sm overflow-hidden border border-light">
+                                    <iframe src="https://www.youtube.com/embed/SFgYEJcnWEU" title="Depoimento 2" allowfullscreen loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="ratio ratio-16x9 rounded-3 shadow-sm overflow-hidden border border-light">
+                                    <iframe src="https://www.youtube.com/embed/NgYX-gAreZ4" title="Depoimento 3" allowfullscreen loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="ratio ratio-16x9 rounded-3 shadow-sm overflow-hidden border border-light">
+                                    <iframe src="https://www.youtube.com/embed/QzvrY59aa4s" title="Depoimento 4" allowfullscreen loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- NEW SECTION: FAQ & PREÇOS -->
     <section id="faq" class="py-5 bg-white">
         <div class="container">
             <div class="row justify-content-center">
@@ -848,7 +864,6 @@
         </div>
     </section>
 
-    <!-- VIDEOS SECTION (Moved down) -->
     <section id="videos" class="py-5" style="background-color: var(--celer-light);">
         <div class="container">
             <div class="row align-items-center">
@@ -871,7 +886,6 @@
         </div>
     </section>
 
-    <!-- LOCATION / MAP -->
     <section id="unidades" class="py-5 bg-white">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -887,7 +901,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="row">
@@ -924,18 +937,16 @@
             </div>
             <div class="row mt-4 pt-4 border-top border-secondary">
                 <div class="col-12 text-center">
-                    <p class="mb-0 text-white-50">&copy; 2025 Instituto Celer. Todos os direitos reservados.</p>
+                    <p class="mb-0 text-white-50">© 2025 Instituto Celer. Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/5511919914927" class="floating-whatsapp" target="_blank" aria-label="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -944,9 +955,9 @@
     <script>
         // Inicializar Animações AOS
         AOS.init({
-            once: true, // Animar apenas uma vez ao descer
-            offset: 100, // Começar animação um pouco antes
-            duration: 800, // Duração padrão
+            once: true,
+            offset: 100,
+            duration: 800,
         });
 
         // Inicializar Swiper de Serviços
@@ -963,7 +974,7 @@
             },
         });
 
-        // Inicializar Swiper de Depoimentos (Novo)
+        // Inicializar Swiper de Depoimentos (Texto)
         var swiperTestimonials = new Swiper(".testimonialsSwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -982,6 +993,26 @@
             },
         });
 
+        // Inicializar Swiper de Vídeos (NOVO - COM SETAS)
+        var videoSwiper = new Swiper(".videoSwiper", {
+            slidesPerView: 1,  // Mobile: 1 vídeo bem grande
+            spaceBetween: 30,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                768: { 
+                    slidesPerView: 2, // Tablet/PC: 2 vídeos grandes
+                    spaceBetween: 40 
+                }
+            },
+        });
+
         // Inicializar Mapa Leaflet
         document.addEventListener('DOMContentLoaded', function() {
             var ipirangaCoords = [-23.5917, -46.6083];
@@ -989,7 +1020,7 @@
             var map = L.map('map', {scrollWheelZoom: false}).setView(ipirangaCoords, 14);
             
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+                attribution: '© OpenStreetMap contributors © CARTO'
             }).addTo(map);
 
             var blueIcon = new L.Icon({
