@@ -1,0 +1,385 @@
+/* --- VARIÁVEIS DA IDENTIDADE VISUAL --- */
+:root {
+    --celer-navy: #001233;   /* Azul escuro */
+    --celer-blue: #0054b4;   /* Azul vibrante */
+    --celer-light: #f4f8fb;  /* Fundo claro */
+    --white: #ffffff;
+    --text-gray: #555555;
+    --whatsapp-green: #25d366;
+}
+
+/* --- GERAL --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-gray);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--celer-navy);
+}
+
+a { text-decoration: none; }
+
+/* --- LOGO --- */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+.logo-main {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--celer-navy);
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+.logo-sub {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.65rem;
+    color: var(--celer-blue);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* --- HEADER --- */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    font-family: 'Oswald', sans-serif;
+    color: var(--celer-navy) !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--celer-blue);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after { width: 100%; }
+.nav-link:hover { color: var(--celer-blue) !important; }
+
+.btn-celer {
+    background-color: var(--celer-blue);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--celer-blue);
+    box-shadow: 0 4px 15px rgba(0, 84, 180, 0.3);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-celer:hover {
+    background-color: transparent;
+    color: var(--celer-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 84, 180, 0.4);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    background: linear-gradient(135deg, var(--celer-navy) 0%, #002855 50%, var(--celer-blue) 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: white !important; 
+}
+.hero-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+.hero-stats {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-top: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s;
+}
+.hero-stats:hover { transform: scale(1.02); background: rgba(255,255,255,0.15); }
+.hero-stats i { font-size: 2rem; color: #4da3ff; margin-right: 15px; }
+.hero-stats h4 { color: white; margin: 0; font-size: 1.8rem; }
+.hero-stats span { font-size: 0.9rem; font-family: 'Roboto', sans-serif; }
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-section { text-align: center; padding: 60px 0; }
+}
+
+/* --- SECTIONS GENERAL --- */
+.section-subtitle {
+    color: var(--celer-blue);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+.section-title {
+    font-size: 2.5rem;
+    color: var(--celer-navy);
+    margin-bottom: 20px;
+}
+
+/* --- ABOUT --- */
+.about-section { padding: 100px 0; background-color: white; }
+.check-list li {
+    list-style: none;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: var(--celer-navy);
+}
+.check-list i { color: var(--celer-blue); margin-right: 10px; font-size: 1.2rem; }
+
+/* --- SERVICES --- */
+.services-section { background-color: var(--celer-light); padding: 100px 0; }
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: all 0.3s;
+    height: 100%;
+    border-bottom: 3px solid transparent;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    border-bottom: 3px solid var(--celer-blue);
+    box-shadow: 0 15px 40px rgba(0, 84, 180, 0.1);
+}
+.service-icon {
+    width: 70px; height: 70px;
+    background: rgba(0, 84, 180, 0.1);
+    color: var(--celer-blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+.service-card:hover .service-icon {
+    background: var(--celer-blue); color: white; transform: rotateY(180deg);
+}
+
+/* --- TABS --- */
+.nav-pills .nav-link {
+    border: 1px solid #e0e0e0;
+    color: var(--celer-navy) !important;
+    margin: 0 5px;
+    border-radius: 50px;
+    padding: 10px 25px;
+}
+.nav-pills .nav-link.active {
+    background-color: var(--celer-blue);
+    color: white !important;
+    border-color: var(--celer-blue);
+}
+
+/* --- EVENTOS & CORPORATIVO --- */
+.eventos-section {
+    background-color: #ffffff;
+    padding: 100px 0;
+    position: relative;
+}
+.pricing-card {
+    background: var(--celer-light);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.pricing-card:hover {
+    border-color: var(--celer-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 84, 180, 0.15);
+}
+.pricing-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+.price-tag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: var(--celer-blue);
+    font-weight: 700;
+}
+.partner-badge {
+    background: #f8f9fa;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: var(--celer-navy);
+    border: 1px solid #e9ecef;
+    display: inline-block;
+    margin: 5px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.partner-badge:hover {
+    background: var(--celer-navy);
+    color: white;
+}
+
+/* --- TESTIMONIALS --- */
+.testimonial-card {
+    background: white; padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin: 10px; border: 1px solid #eee;
+}
+.stars { color: #f4c150; margin-bottom: 15px; }
+
+/* --- SWIPER ARROWS --- */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--celer-blue) !important;
+    background: rgba(255,255,255,0.8);
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.swiper-button-next:after, .swiper-button-prev:after { font-size: 20px !important; font-weight: bold; }
+
+/* --- FAQ --- */
+.accordion-item { border: none; margin-bottom: 10px; border-radius: 10px !important; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+.accordion-button:not(.collapsed) { color: var(--celer-blue); background-color: rgba(0, 84, 180, 0.05); }
+
+/* --- VIDEO --- */
+.video-thumb-container {
+    position: relative; border-radius: 15px; overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border: 4px solid var(--celer-navy);
+    transition: transform 0.3s;
+}
+.video-thumb-container:hover { transform: scale(1.01); }
+
+/* --- FOOTER & FLOAT --- */
+footer { background-color: var(--celer-navy); color: white; padding: 80px 0 30px; }
+footer a { color: #cfcfcf; transition: 0.3s; text-decoration: none; }
+footer a:hover { color: var(--celer-blue); }
+
+.floating-whatsapp {
+    position: fixed; bottom: 30px; right: 30px;
+    background-color: var(--whatsapp-green); color: white;
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999; text-decoration: none;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- PARCEIROS / LOGOS GRID --- */
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.partner-logo {
+    max-width: 140px;
+    height: auto;
+    filter: grayscale(100%); /* Deixa as logos preto e branco */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%); /* Deixa colorido ao passar o mouse */
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Ajuste Mobile para os Logos */
+@media (max-width: 768px) {
+    .partner-logo {
+        max-width: 100px;
+    }
+}
+
+/* --- ÍCONES DO FOOTER --- */
+.social-icons a {
+    font-size: 1.8rem;       /* Aumenta o tamanho (padrão é aprox 1rem) */
+    margin-right: 20px;      /* Dá mais espaço entre eles */
+    color: #cfcfcf;          /* Cor original */
+    display: inline-block;   /* Necessário para o efeito de zoom funcionar */
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--celer-blue); /* Muda para azul ao passar o mouse */
+    transform: scale(1.2);    /* Aumenta um pouquinho mais ao passar o mouse */
+}

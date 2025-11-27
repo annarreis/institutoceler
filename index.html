@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Instituto Celer - Quiropraxia e Fisioterapia Especializada em SP. Tratamento de dor na coluna, fisioterapia esportiva e recuperação acelerada.">
+    <meta name="description" content="Instituto Celer - Quiropraxia, Fisioterapia e Soluções Corporativas em SP.">
     <title>Instituto Celer | Quiropraxia e Fisioterapia em SP</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,429 +12,10 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        /* --- VARIÁVEIS DA IDENTIDADE VISUAL --- */
-        :root {
-            --celer-navy: #001233;   /* Azul escuro do texto do logo */
-            --celer-blue: #0054b4;   /* Azul vibrante do swoosh do logo */
-            --celer-light: #f4f8fb;  /* Fundo claro azulado */
-            --white: #ffffff;
-            --text-gray: #555555;
-            --whatsapp-green: #25d366;
-        }
-
-        /* --- GERAL --- */
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-gray);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--celer-navy);
-        }
-
-        a { text-decoration: none; }
-
-        /* --- LOGO --- */
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-        
-        .logo-img {
-            height: 65px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .logo-text-group {
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-        }
-        .logo-main {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--celer-navy);
-            letter-spacing: -1px;
-            text-transform: uppercase;
-            margin: 0;
-        }
-        .logo-sub {
-            font-family: 'Roboto', sans-serif;
-            font-size: 0.65rem;
-            color: var(--celer-blue);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-style: italic;
-            font-weight: 500;
-            margin-top: 2px;
-        }
-
-        /* --- HEADER (Glassmorphism) --- */
-        header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link {
-            font-family: 'Oswald', sans-serif;
-            color: var(--celer-navy) !important;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--celer-blue);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-link:hover {
-            color: var(--celer-blue) !important;
-        }
-
-        .btn-celer {
-            background-color: var(--celer-blue);
-            color: white;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            padding: 10px 25px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--celer-blue);
-            box-shadow: 0 4px 15px rgba(0, 84, 180, 0.3);
-        }
-
-        .btn-celer:hover {
-            background-color: transparent;
-            color: var(--celer-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 84, 180, 0.4);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero-section {
-            background: linear-gradient(135deg, var(--celer-navy) 0%, #002855 50%, var(--celer-blue) 100%);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-            color: white;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: white !important; 
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-section { text-align: center; padding: 60px 0; }
-        }
-
-        .hero-subtitle {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .hero-stats {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255,255,255,0.1);
-            padding: 15px 25px;
-            border-radius: 12px;
-            margin-top: 30px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: transform 0.3s;
-        }
-        
-        .hero-stats:hover {
-            transform: scale(1.02);
-            background: rgba(255,255,255,0.15);
-        }
-
-        .hero-stats i {
-            font-size: 2rem;
-            color: #4da3ff;
-            margin-right: 15px;
-        }
-
-        .hero-stats h4 {
-            color: white;
-            margin: 0;
-            font-size: 1.8rem;
-        }
-
-        .hero-stats span {
-            font-size: 0.9rem;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        /* --- ABOUT SECTION --- */
-        .about-section {
-            padding: 100px 0;
-            background-color: white;
-        }
-        .section-subtitle {
-            color: var(--celer-blue);
-            font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--celer-navy);
-            margin-bottom: 20px;
-        }
-        .check-list li {
-            list-style: none;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-            color: var(--celer-navy);
-            transition: transform 0.2s;
-        }
-        .check-list li:hover {
-            transform: translateX(5px);
-        }
-        .check-list i {
-            color: var(--celer-blue);
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-
-        /* --- SERVICES (CARDS) --- */
-        .services-section {
-            background-color: var(--celer-light);
-            padding: 100px 0;
-        }
-        .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            height: 100%;
-            border-bottom: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 3px solid var(--celer-blue);
-            box-shadow: 0 15px 40px rgba(0, 84, 180, 0.1);
-        }
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(0, 84, 180, 0.1);
-            color: var(--celer-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            transition: 0.3s;
-        }
-        .service-card:hover .service-icon {
-            background: var(--celer-blue);
-            color: white;
-            transform: rotateY(180deg);
-        }
-
-        /* --- TABS DIFERENCIAIS --- */
-        .nav-pills .nav-link {
-            border: 1px solid #e0e0e0;
-            color: var(--celer-navy) !important;
-            margin: 0 5px;
-            border-radius: 50px;
-            padding: 10px 25px;
-            transition: all 0.3s;
-        }
-        .nav-pills .nav-link:hover {
-            background-color: rgba(0, 84, 180, 0.05);
-        }
-        .nav-pills .nav-link.active {
-            background-color: var(--celer-blue);
-            color: white !important;
-            border-color: var(--celer-blue);
-            transform: scale(1.05);
-        }
-
-        /* --- TESTIMONIALS (Google Style) --- */
-        .testimonial-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            margin: 10px;
-            border: 1px solid #eee;
-        }
-        .stars { color: #f4c150; margin-bottom: 15px; }
-        .google-icon { width: 24px; margin-right: 10px; }
-
-        /* --- SWIPER ARROWS CUSTOM --- */
-        .swiper-button-next, .swiper-button-prev {
-            color: var(--celer-blue) !important;
-            background: rgba(255,255,255,0.8);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 20px !important;
-            font-weight: bold;
-        }
-
-        /* --- FAQ SECTION --- */
-        .accordion-item {
-            border: none;
-            margin-bottom: 10px;
-            border-radius: 10px !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            overflow: hidden;
-        }
-        .accordion-button {
-            font-family: 'Oswald', sans-serif;
-            color: var(--celer-navy);
-            font-weight: 500;
-            background-color: white;
-        }
-        .accordion-button:not(.collapsed) {
-            color: var(--celer-blue);
-            background-color: rgba(0, 84, 180, 0.05);
-            box-shadow: none;
-        }
-        .accordion-button:focus {
-            box-shadow: none;
-            border-color: rgba(0,0,0,0.125);
-        }
-
-        /* --- VIDEO SECTION --- */
-        .video-thumb-container {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border: 4px solid var(--celer-navy);
-            transition: transform 0.3s;
-        }
-        .video-thumb-container:hover {
-            transform: scale(1.01);
-        }
-
-        /* --- FLOATING WHATSAPP --- */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--whatsapp-green);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 9999;
-            text-decoration: none;
-            transition: all 0.3s;
-            animation: pulse 2s infinite;
-        }
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-            background-color: #128c7e;
-            color: white;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--celer-navy);
-            color: white;
-            padding: 80px 0 30px;
-        }
-        footer h4 { color: white; margin-bottom: 25px; }
-        footer p, footer a { color: #cfcfcf; transition: 0.3s; text-decoration: none; }
-        footer a:hover { color: var(--celer-blue); }
-        footer .social-icons a {
-            display: inline-flex;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-right: 10px;
-            color: white;
-            transition: transform 0.3s, background 0.3s;
-        }
-        footer .social-icons a:hover { 
-            background: var(--celer-blue);
-            transform: translateY(-3px);
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body id="top">
 
@@ -453,6 +34,7 @@
                     <ul class="nav">
                         <li class="nav-item"><a href="#inicio" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="#especialidades" class="nav-link">Serviços</a></li>
+                        <li class="nav-item"><a href="#eventos" class="nav-link">Eventos</a></li>
                         <li class="nav-item"><a href="#depoimentos" class="nav-link">Resultados</a></li>
                         <li class="nav-item"><a href="#faq" class="nav-link">Dúvidas</a></li>
                         <li class="nav-item"><a href="#unidades" class="nav-link">Unidades</a></li>
@@ -480,6 +62,7 @@
             <ul class="list-unstyled">
                 <li class="mb-3"><a href="#inicio" class="text-dark text-decoration-none fw-bold text-uppercase d-block p-2">Home</a></li>
                 <li class="mb-3"><a href="#especialidades" class="text-dark text-decoration-none fw-bold text-uppercase d-block p-2">Serviços</a></li>
+                <li class="mb-3"><a href="#eventos" class="text-dark text-decoration-none fw-bold text-uppercase d-block p-2">Para Empresas</a></li>
                 <li class="mb-3"><a href="#depoimentos" class="text-dark text-decoration-none fw-bold text-uppercase d-block p-2">Resultados</a></li>
                 <li class="mb-3"><a href="#faq" class="text-dark text-decoration-none fw-bold text-uppercase d-block p-2">Dúvidas</a></li>
                 <li class="mb-3"><a href="#unidades" class="text-dark text-decoration-none fw-bold text-uppercase d-block p-2">Unidades</a></li>
@@ -605,20 +188,6 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="service-card text-center">
-                            <div class="service-icon mx-auto"><i class="fas fa-bolt"></i></div>
-                            <h4>Eletroestimulação Corpo Inteiro</h4>
-                            <p class="text-muted">Tecnologia avançada para ativação muscular profunda e reabilitação acelerada.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="service-card text-center">
-                            <div class="service-icon mx-auto"><i class="fas fa-brain"></i></div>
-                            <h4>Neuromodulação Não Invasiva</h4>
-                            <p class="text-muted">Técnica para regulação do sistema nervoso e controle efetivo da dor crônica.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="service-card text-center">
                             <div class="service-icon mx-auto"><i class="fas fa-snowflake"></i></div>
                             <h4>Recovery</h4>
                             <p class="text-muted">Técnicas como bota pneumática e banheira de gelo para acelerar a recuperação muscular pós-treino.</p>
@@ -692,6 +261,136 @@
         </div>
     </section>
 
+    <section id="eventos" class="eventos-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">SOLUÇÕES PARA EMPRESAS E EVENTOS</span>
+                <h2 class="section-title">Leve Bem-Estar e Performance</h2>
+                <p class="text-muted mx-auto" style="max-width: 700px;">
+                    Fortaleça a imagem da sua marca e aumente o engajamento com nossa estrutura profissional de recuperação e relaxamento.
+                </p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-card bg-white shadow-sm">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-snowflake fa-3x text-primary mb-3"></i>
+                            <h4>Espaço Recovery</h4>
+                        </div>
+                        <p class="text-muted text-center">
+                            Estrutura completa para recuperação muscular em eventos esportivos com equipamentos de ponta.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Bota Pneumática (Liveto)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Banheira de Gelo (Go Arctic)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Pistola Massageadora (Phoenix)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-card bg-white shadow-sm">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-chair fa-3x text-primary mb-3"></i>
+                            <h4>Corporativo & Wellness</h4>
+                        </div>
+                        <p class="text-muted text-center">
+                            Ideal para SIPAT, ações de endomarketing e qualidade de vida no trabalho.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Quick Massage</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Liberação Miofascial</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Alívio de tensões</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-card bg-white shadow-sm border-primary">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                            <h4>Fila Virtual Exclusiva</h4>
+                        </div>
+                        <p class="text-muted text-center">
+                            Organização e tecnologia a favor da experiência do participante.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Agendamento via App</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Sem filas físicas em pé</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Monitoramento em tempo real</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-5" data-aos="fade-up">
+                <div class="col-12 text-center mb-4">
+                    <h3 class="text-uppercase fw-bold" style="color: var(--celer-navy);">Planos Corporativos</h3>
+                    <p class="text-muted">Consulte condições especiais para Quick Massage + Liberação Miofascial</p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="pricing-card text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="pricing-header">
+                                <h5>Pequeno Porte</h5>
+                            </div>
+                            <h3 class="my-3 text-primary">Até 50</h3>
+                            <span class="text-muted d-block mb-3">Colaboradores</span>
+                            <p class="text-muted small">Ideal para pequenas ações e eventos pontuais.</p>
+                        </div>
+                        <a href="https://wa.me/5511919914927?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20evento%20com%20at%C3%A9%2050%20colaboradores." target="_blank" class="btn btn-celer w-100 mt-3">Fazer Orçamento</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="pricing-card text-center border-primary d-flex flex-column justify-content-between" style="transform: scale(1.05); z-index: 2; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        
+                        <div>
+                            <div class="pricing-header mt-2">
+                                <h5>Médio Porte</h5>
+                            </div>
+                            <h3 class="my-3 text-primary">51 a 150</h3>
+                            <span class="text-muted d-block mb-3">Colaboradores</span>
+                            <p class="text-muted small">Estrutura otimizada para maior fluxo de pessoas.</p>
+                        </div>
+                        <a href="https://wa.me/5511919914927?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20evento%20entre%2051%20e%20150%20colaboradores." target="_blank" class="btn btn-celer w-100 mt-3">Fazer Orçamento</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="pricing-card text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="pricing-header">
+                                <h5>Grande Porte</h5>
+                            </div>
+                            <h3 class="my-3 text-primary">151 a 200+</h3>
+                            <span class="text-muted d-block mb-3">Colaboradores</span>
+                            <p class="text-muted small">Gestão completa de fila e múltiplos terapeutas.</p>
+                        </div>
+                        <a href="https://wa.me/5511919914927?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20evento%20acima%20de%20150%20colaboradores." target="_blank" class="btn btn-celer w-100 mt-3">Fazer Orçamento</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 pt-4 text-center" data-aos="fade-in">
+                <div class="col-12">
+                    <p class="fw-bold mb-4 text-uppercase" style="letter-spacing: 2px; color: var(--text-gray);">Quem já confia no Instituto Celer</p>
+                    
+                    <div class="partners-grid">
+                        <img src="logo1.jpg" alt="Logo Parceiro 1" class="partner-logo">
+                        <img src="logo2.jpg" alt="Logo Parceiro 2" class="partner-logo">
+                        <img src="logo3.jpg" alt="Logo Parceiro 3" class="partner-logo">
+                        <img src="logo5.jpg" alt="Logo Parceiro 5" class="partner-logo">
+                        <img src="logo6.png" alt="Logo Parceiro 6" class="partner-logo">
+                        <img src="logo7.jpg" alt="Logo Parceiro 7" class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="depoimentos" class="py-5" style="background-color: var(--celer-light);">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -707,62 +406,7 @@
             </div>
 
             <div class="swiper testimonialsSwiper pb-5" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="d-flex justify-content-between mb-3">
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: bold;">R</div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0 text-dark">Ricardo S.</h6>
-                                        <small class="text-muted">Paciente de Quiropraxia</small>
-                                    </div>
-                                </div>
-                                <i class="fab fa-google text-muted"></i>
-                            </div>
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-muted fst-italic">"Fiz algumas sessões de Quiro e as minhas costas ficaram 100%! Profissionais muito atenciosos e ambiente excelente."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="d-flex justify-content-between mb-3">
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: bold;">M</div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0 text-dark">Mariana L.</h6>
-                                        <small class="text-muted">Fisioterapia Esportiva</small>
-                                    </div>
-                                </div>
-                                <i class="fab fa-google text-muted"></i>
-                            </div>
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-muted fst-italic">"Cheguei com dor no joelho que me impedia de correr. Após o tratamento e fortalecimento, voltei aos treinos sem dor."</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="d-flex justify-content-between mb-3">
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: bold;">C</div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0 text-dark">Carlos E.</h6>
-                                        <small class="text-muted">Recovery</small>
-                                    </div>
-                                </div>
-                                <i class="fab fa-google text-muted"></i>
-                            </div>
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-muted fst-italic">"Estrutura fantástica. O recovery pós-treino com bota pneumática é essencial na minha rotina agora."</p>
-                        </div>
-                    </div>
-                </div>
+                <div class="swiper-wrapper" id="google-reviews-container"></div>
                 <div class="swiper-pagination"></div>
             </div>
             
@@ -807,7 +451,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -815,12 +458,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="text-center mb-5" data-aos="fade-up">
+                     <div class="text-center mb-5" data-aos="fade-up">
                         <span class="section-subtitle">DÚVIDAS FREQUENTES</span>
                         <h2 class="section-title">Investimento & Convênios</h2>
                         <p class="text-muted">Transparência total para você focar apenas na sua recuperação.</p>
                     </div>
-
                     <div class="accordion" id="faqAccordion" data-aos="fade-up" data-aos-delay="200">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
@@ -892,21 +534,23 @@
                 <h2 class="section-title">Onde Estamos</h2>
                 <p>Fácil acesso no bairro do Ipiranga - SP</p>
             </div>
-            <div id="map" style="height: 400px; border-radius: 15px; z-index: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" data-aos="zoom-in"></div>
+            
+            <div class="ratio ratio-21x9 shadow rounded-4 overflow-hidden" data-aos="zoom-in" style="max-height: 450px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.224794910132!2d-46.608964525233716!3d-23.596269662874477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5db50fa1c14b%3A0x9f61c65472bfa290!2sInstituto%20Celer%20-%20Fisioterapia%20e%20Quiropraxia!5e0!3m2!1spt-BR!2sbr!4v1764191918272!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
             <div class="text-center mt-4">
-                 <a href="https://maps.google.com/?q=Instituto+Celer+Ipiranga" target="_blank" class="btn btn-outline-primary rounded-pill">
-                    <i class="fas fa-location-arrow me-2"></i> Traçar Rota no Google Maps
+                 <a href="https://goo.gl/maps/seuLinkAqui" target="_blank" class="btn btn-outline-primary rounded-pill">
+                    <i class="fas fa-location-arrow me-2"></i> Abrir no App do Google Maps
                  </a>
             </div>
         </div>
     </section>
-
-    <footer>
+<footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <div class="brand-logo mb-3">
-                        <img src="https://placehold.co/100x100/FFF/001233?text=LOGO" alt="Logo Instituto Celer" class="logo-img bg-white rounded-circle p-1">
                         <div class="d-flex flex-column">
                             <span style="font-family: 'Oswald'; font-size: 1.5rem; font-weight: 700; line-height: 1;">INSTITUTO CELER</span>
                         </div>
@@ -917,6 +561,7 @@
                     <h4>Links Rápidos</h4>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#especialidades">Especialidades</a></li>
+                        <li class="mb-2"><a href="#eventos">Para Empresas</a></li>
                         <li class="mb-2"><a href="#inicio">Quem Somos</a></li>
                         <li class="mb-2"><a href="#faq">Dúvidas Frequentes</a></li>
                         <li class="mb-2"><a href="#unidades">Localização</a></li>
@@ -928,9 +573,8 @@
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> R. Bom Pastor, 2224 - Ipiranga, São Paulo - SP, 04203-002</li>
                         <li class="mb-2"><a href="mailto:contato@institutoceler.com.br"><i class="fas fa-envelope me-2 text-primary"></i> contato@institutoceler.com.br</a></li>
                         <li class="mt-3 social-icons">
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/institutoceler?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/5511919914927" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -949,93 +593,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script>
-        // Inicializar Animações AOS
-        AOS.init({
-            once: true,
-            offset: 100,
-            duration: 800,
-        });
-
-        // Inicializar Swiper de Serviços
-        var swiperServices = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-            },
-        });
-
-        // Inicializar Swiper de Depoimentos (Texto)
-        var swiperTestimonials = new Swiper(".testimonialsSwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-            },
-        });
-
-        // Inicializar Swiper de Vídeos (NOVO - COM SETAS)
-        var videoSwiper = new Swiper(".videoSwiper", {
-            slidesPerView: 1,  // Mobile: 1 vídeo bem grande
-            spaceBetween: 30,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                768: { 
-                    slidesPerView: 2, // Tablet/PC: 2 vídeos grandes
-                    spaceBetween: 40 
-                }
-            },
-        });
-
-        // Inicializar Mapa Leaflet
-        document.addEventListener('DOMContentLoaded', function() {
-            var ipirangaCoords = [-23.5917, -46.6083];
-            
-            var map = L.map('map', {scrollWheelZoom: false}).setView(ipirangaCoords, 14);
-            
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                attribution: '© OpenStreetMap contributors © CARTO'
-            }).addTo(map);
-
-            var blueIcon = new L.Icon({
-                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                iconSize: [25, 41],
-                iconAnchor: [12, 41],
-                popupAnchor: [1, -34],
-                shadowSize: [41, 41]
-            });
-
-            L.marker(ipirangaCoords, {icon: blueIcon}).addTo(map)
-                .bindPopup('<b>Instituto Celer</b><br>Unidade Ipiranga - SP<br>Agende sua avaliação.')
-                .openPopup();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
