@@ -5,37 +5,37 @@ AOS.init({
     duration: 800,
 });
 
-// --- 1. CONFIGURAÇÃO DAS AVALIAÇÕES DO GOOGLE ---
+// --- 1. CONFIGURAÇÃO DAS AVALIAÇÕES DO GOOGLE (REAIS) ---
 const reviews = [
     {
-        name: "Ricardo Silva",
-        initial: "R",
+        name: "Igor Amaral",
+        initial: "I",
         color: "bg-primary",
-        text: "Fiz algumas sessões de Quiro e as minhas costas ficaram 100%! Profissionais muito atenciosos e ambiente excelente."
+        text: "Eu tinha medo de fazer quiropraxia, mas a equipe do instituto Celer foi super atenciosa e me explicou tudo direitinho, após fazer todos os procedimentos, saí de lá leve. A dor que eu estava sentindo a mais de uma semana foi minimizada já na primeira visita, estou bem melhor agora!"
     },
     {
-        name: "Mariana Lima",
-        initial: "M",
+        name: "Selma Pires",
+        initial: "S",
         color: "bg-success",
-        text: "Cheguei com dor no joelho que me impedia de correr. Após o tratamento e fortalecimento, voltei aos treinos sem dor. Recomendo demais!"
+        text: "Minha irmã me indicou o espaço e sem dúvidas foi a melhor escolha que fiz. O Doutor Lucas é muito atencioso, me explicou tudo do começo ao fim e me passou segurança. O atendimento é individualizado, diferente de outras clínicas. Saí muito mais aliviada e feliz. Obrigado Doutor!"
     },
     {
-        name: "Carlos Eduardo",
+        name: "Caio Cesar",
         initial: "C",
         color: "bg-info",
-        text: "Estrutura fantástica. O recovery pós-treino com bota pneumática é essencial na minha rotina agora. O atendimento é nota 10."
+        text: "Profissional experiente e muito completo. Com uma sessão já melhorou totalmente todas as dores que eu estava sentindo, sempre com atenção a todos detalhes da minha situação em específico. Pretendo continuar o acompanhamento e recomendo fortemente a todos!"
     },
     {
-        name: "Fernanda Souza",
-        initial: "F",
+        name: "Camila Beatriz",
+        initial: "C",
         color: "bg-warning text-dark",
-        text: "O Dr. Lucas é excelente. Explicou exatamente o que eu tinha e o tratamento foi super eficaz. A clínica é muito limpa e organizada."
+        text: "Ótima clínica de fisioterapia, ótima localização, todos muito atenciosos e profissionais! Indico muito!! 👏🏻👏🏻👏🏻"
     },
     {
-        name: "João Pedro",
-        initial: "J",
+        name: "Victor Hugo Lopes",
+        initial: "V",
         color: "bg-danger",
-        text: "Melhor quiropraxia da região do Ipiranga. Preço justo e resultado rápido. Agradeço a toda equipe pelo cuidado."
+        text: "Primeira vez que tive a experiência de fazer quiropraxia. Dr. Lucas foi totalmente atencioso, explicou o método, passou segurança e realizou com êxito. Foi muito bacana, fechei mais 5 sessões pois é realmente aliviador."
     }
 ];
 
