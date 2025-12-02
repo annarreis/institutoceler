@@ -117,6 +117,7 @@ var swiperTestimonials = new Swiper(".testimonialsSwiper", {
 var videoSwiper = new Swiper(".videoSwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
+    loop: true,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -130,5 +131,36 @@ var videoSwiper = new Swiper(".videoSwiper", {
             slidesPerView: 2, 
             spaceBetween: 40 
         }
+    },
+});
+
+// --- 3. SWIPER DOS PARCEIROS (LOGOS) ---
+var swiperPartners = new Swiper(".partnersSwiper", {
+    slidesPerView: 2,       
+    spaceBetween: 30,       
+    loop: true,             // <--- ISSO GARANTE QUE RECOMECE DO 1 AUTOMATICAMENTE
+    centeredSlides: false,  // Deixe false para começar alinhado à esquerda
+    grabCursor: true,       
+    autoplay: {
+        delay: 2000,        // Tempo em ms (2 segundos)
+        disableOnInteraction: false, // Continua rodando mesmo se alguém mexer
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        576: {
+            slidesPerView: 3, // Celular grande
+        },
+        768: {
+            slidesPerView: 3, // Tablet (diminui de 4 para 3 para ficarem maiores)
+        },
+        1024: {
+            slidesPerView: 4, // Desktop (diminui de 5 para 4 para ficarem maiores)
+        },
+        1200: {
+            slidesPerView: 5, // Telas gigantes (diminui de 6 para 5)
+        },
     },
 });
